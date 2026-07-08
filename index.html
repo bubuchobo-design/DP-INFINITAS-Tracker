@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0e18" />
   <title>DP INFINITAS Tracker</title>
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="icon.svg" />
-  <link rel="stylesheet" href="style.css?v=1.3.0" />
+  <link rel="icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css?v=2.0.0" />
 </head>
 <body>
   <header class="hero">
@@ -15,17 +14,17 @@
       <h1>DP INFINITAS</h1>
       <p class="sub">Tracker / Road to DP Kaiden</p>
     </div>
-    <span class="version">v1.3</span>
+    <div class="version">v2.0</div>
   </header>
 
   <main>
-    <section class="view home-view" data-view="home">
+    <section class="view home-view active" data-view="home">
       <section class="card summary-card">
         <div class="summary-top">
           <div>
             <p class="label">全体進捗</p>
             <h2 id="clearPercent">0%</h2>
-            <p class="meta"><span id="clearSummary">0 / 0</span> CLEAR+</p>
+            <p class="meta" id="clearSummary">0 / 0</p>
           </div>
           <div class="ring"><span id="ringNum">0</span><small id="ringDen">/0</small></div>
         </div>
@@ -54,6 +53,7 @@
         <div class="seg sort-tabs" id="sortTabs">
           <button data-sort="difficulty" class="active">非公式順</button>
           <button data-sort="title">A-Z</button>
+          <button data-sort="version">シリーズ</button>
         </div>
         <select id="diffFilter"><option value="">難易度 全て</option></select>
         <div class="countline"><span id="resultCount">0</span> 譜面</div>
@@ -113,6 +113,6 @@
     </form>
   </dialog>
 
-  <script src="app.js?v=1.3.0"></script>
+  <script src="app.js?v=2.0.0"></script>
 </body>
 </html>
