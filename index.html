@@ -3,90 +3,98 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#10131f" />
+  <meta name="theme-color" content="#0b0e18" />
   <title>DP INFINITAS Tracker</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon.svg" />
-  <link rel="stylesheet" href="style.css?v=1.1.0" />
+  <link rel="stylesheet" href="style.css?v=1.2.0" />
 </head>
 <body>
   <header class="hero">
     <div>
-      <p class="eyebrow">Road to DP Kaiden</p>
-      <h1>DP INFINITAS Tracker</h1>
-      <p class="sub">☆10 / ☆11 / ☆12 · INFINITAS DP</p>
+      <h1>DP INFINITAS</h1>
+      <p class="sub">Tracker / Road to DP Kaiden</p>
     </div>
-    <div class="version">v1.1</div>
+    <span class="version">v1.2</span>
   </header>
 
   <main>
-    <section class="card summary-card">
-      <div class="summary-top">
-        <div>
-          <p class="label">CLEAR以上</p>
-          <h2 id="clearSummary">0 / 0</h2>
+    <section class="view home-view" data-view="home">
+      <section class="card summary-card">
+        <div class="summary-top">
+          <div>
+            <p class="label">全体進捗</p>
+            <h2 id="clearPercent">0%</h2>
+            <p class="meta"><span id="clearSummary">0 / 0</span> CLEAR+</p>
+          </div>
+          <div class="ring"><span id="ringNum">0</span><small id="ringDen">/0</small></div>
         </div>
-        <div class="big-percent" id="clearPercent">0%</div>
-      </div>
-      <div class="bar"><div id="clearBar"></div></div>
-      <div class="mini-stats">
-        <div><span id="hardCount">0</span><small>HARD+</small></div>
-        <div><span id="exhCount">0</span><small>EXH+</small></div>
-        <div><span id="fcCount">0</span><small>FC</small></div>
-      </div>
+        <div class="bar"><div id="clearBar"></div></div>
+        <div class="mini-stats">
+          <div><span id="easyCount">0</span><small>EASY+</small></div>
+          <div><span id="hardCount">0</span><small>HARD+</small></div>
+          <div><span id="exhCount">0</span><small>EXH+</small></div>
+          <div><span id="fcCount">0</span><small>FC</small></div>
+        </div>
+      </section>
+      <section class="card stats-card">
+        <div class="section-title"><h3>難易度別</h3></div>
+        <div id="diffStatsHome" class="diff-cards"></div>
+      </section>
     </section>
 
-    <section class="card controls">
-      <input id="searchInput" type="search" placeholder="曲名・メモ検索" />
-      <div class="grid2">
-        <select id="starFilter">
-          <option value="">☆ 全て</option>
-          <option value="10">☆10</option>
-          <option value="11">☆11</option>
-          <option value="12">☆12</option>
-        </select>
+    <section class="view list-view" data-view="list">
+      <section class="card controls compact-controls">
+        <div class="seg star-tabs" id="officialTabs">
+          <button data-official="" class="active">全て</button>
+          <button data-official="10">☆10</button>
+          <button data-official="11">☆11</button>
+          <button data-official="12">☆12</button>
+        </div>
+        <div class="seg sort-tabs" id="sortTabs">
+          <button data-sort="difficulty" class="active">非公式順</button>
+          <button data-sort="title">A-Z</button>
+        </div>
         <select id="diffFilter"><option value="">難易度 全て</option></select>
-      </div>
-      <div class="grid2">
-        <select id="lampFilter">
-          <option value="">ランプ 全て</option>
-          <option value="未プレイ">未プレイ</option><option value="EASY">EASY</option><option value="CLEAR">NORMAL</option><option value="HARD">HARD</option><option value="EXHARD">EXHARD</option><option value="FULL COMBO">FC</option>
-        </select>
-        <select id="sortSelect">
-          <option value="difficulty">難易度順</option>
-          <option value="title">曲名 A→Z / 五十音</option>
-          <option value="star">☆順</option>
-          <option value="lamp">ランプ順</option>
-          <option value="version">バージョン順</option>
-        </select>
-      </div>
-      <div class="quick-row">
-        <button id="unhardBtn">未HARD</button>
-        <button id="unexhBtn">未EXH</button>
-        <button id="favBtn">お気に入り</button>
-      </div>
-      <div class="countline"><span id="resultCount">0</span> 譜面表示中</div>
+        <div class="countline"><span id="resultCount">0</span> 譜面</div>
+      </section>
+      <section class="track-list" id="trackList"></section>
     </section>
 
-    <section class="card list-card">
-      <div class="section-title">
-        <h3>曲一覧</h3>
-      </div>
-      <section id="trackList" class="track-list"></section>
+    <section class="view today-view" data-view="today">
+      <section class="card today-card">
+        <div class="section-title"><h3>今日の候補</h3><button id="rerollBtn">再抽選</button></div>
+        <p class="meta">未HARDから☆10・☆11・☆12をそれぞれ候補表示します。</p>
+        <div id="todayList" class="today-list"></div>
+      </section>
     </section>
 
-    <section class="card today-card">
-      <div class="section-title">
-        <h3>今日の候補</h3><button id="rerollBtn">再抽選</button>
-      </div>
-      <div id="todayList" class="today-list"></div>
+    <section class="view stats-view" data-view="stats">
+      <section class="card stats-card">
+        <h3>統計</h3>
+        <div id="diffStats" class="diff-stats"></div>
+      </section>
     </section>
 
-    <section class="card stats-card">
-      <h3>難易度別進捗</h3>
-      <div id="diffStats" class="diff-stats"></div>
+    <section class="view tools-view" data-view="tools">
+      <section class="card tools-card">
+        <h3>ツール</h3>
+        <label class="toggle-row"><span>下部タブ表示</span><input id="tabToggle" type="checkbox" checked /></label>
+        <p class="meta">OFFにすると全画面を縦に並べて表示します。</p>
+        <div class="tool-buttons">
+          <button id="exportBtn">バックアップ</button>
+          <label class="importBtn">復元<input id="importInput" type="file" accept="application/json" hidden /></label>
+        </div>
+      </section>
     </section>
   </main>
+
+  <nav class="bottom-tabs" id="bottomTabs">
+    <button data-tab="home" class="active">ホーム</button>
+    <button data-tab="list">曲</button>
+    <button data-tab="stats">統計</button>
+    <button data-tab="tools">ツール</button>
+  </nav>
 
   <dialog id="editDialog">
     <form method="dialog" id="editForm">
@@ -97,25 +105,14 @@
         </div>
         <button value="cancel" class="icon-btn">×</button>
       </div>
-      <label>ランプ
-        <select id="editLamp">
-          <option value="未プレイ">未プレイ</option><option value="EASY">EASY</option><option value="CLEAR">NORMAL</option><option value="HARD">HARD</option><option value="EXHARD">EXHARD</option><option value="FULL COMBO">FC</option>
-        </select>
-      </label>
-      <label>優先度
-        <select id="editPriority"><option value="">なし</option><option>★★★</option><option>★★</option><option>★</option></select>
-      </label>
+      <div class="lamp-choice" id="lampChoice"></div>
       <label class="check"><input id="editFav" type="checkbox" /> お気に入り</label>
+      <label>優先度<select id="editPriority"><option value="">なし</option><option>★★★</option><option>★★</option><option>★</option></select></label>
       <label>メモ<textarea id="editMemo" placeholder="例：右鏡、FLIP、終盤注意"></textarea></label>
       <button id="saveEdit" value="default" class="primary">保存</button>
     </form>
   </dialog>
 
-  <footer>
-    <button id="exportBtn">バックアップ</button>
-    <label class="importBtn">復元<input id="importInput" type="file" accept="application/json" hidden /></label>
-  </footer>
-
-  <script src="app.js?v=1.1.0"></script>
+  <script src="app.js?v=1.2.0"></script>
 </body>
 </html>
