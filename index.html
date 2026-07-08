@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#10131f" />
+  <title>DP INFINITAS Tracker</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css?v=1.0.0" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Road to DP Kaiden</p>
+      <h1>DP INFINITAS Tracker</h1>
+      <p class="sub">☆10 / ☆11 / ☆12 · INFINITAS DP</p>
+    </div>
+    <div class="version">v1.0</div>
+  </header>
+
+  <main>
+    <section class="card summary-card">
+      <div class="summary-top">
+        <div>
+          <p class="label">CLEAR以上</p>
+          <h2 id="clearSummary">0 / 0</h2>
+        </div>
+        <div class="big-percent" id="clearPercent">0%</div>
+      </div>
+      <div class="bar"><div id="clearBar"></div></div>
+      <div class="mini-stats">
+        <div><span id="hardCount">0</span><small>HARD+</small></div>
+        <div><span id="exhCount">0</span><small>EXH+</small></div>
+        <div><span id="fcCount">0</span><small>FC</small></div>
+      </div>
+    </section>
+
+    <section class="card controls">
+      <input id="searchInput" type="search" placeholder="曲名・メモ検索" />
+      <div class="grid2">
+        <select id="starFilter">
+          <option value="">☆ 全て</option>
+          <option value="10">☆10</option>
+          <option value="11">☆11</option>
+          <option value="12">☆12</option>
+        </select>
+        <select id="diffFilter"><option value="">難易度 全て</option></select>
+      </div>
+      <div class="grid2">
+        <select id="lampFilter">
+          <option value="">ランプ 全て</option>
+          <option>未プレイ</option><option>EASY</option><option>CLEAR</option><option>HARD</option><option>EXHARD</option><option>FULL COMBO</option>
+        </select>
+        <select id="sortSelect">
+          <option value="difficulty">難易度順</option>
+          <option value="title">曲名 A→Z / 五十音</option>
+          <option value="star">☆順</option>
+          <option value="lamp">ランプ順</option>
+          <option value="version">バージョン順</option>
+        </select>
+      </div>
+      <div class="quick-row">
+        <button id="unhardBtn">未HARD</button>
+        <button id="unexhBtn">未EXH</button>
+        <button id="favBtn">お気に入り</button>
+      </div>
+      <div class="countline"><span id="resultCount">0</span> 譜面表示中</div>
+    </section>
+
+    <section class="card today-card">
+      <div class="section-title">
+        <h3>今日の候補</h3><button id="rerollBtn">再抽選</button>
+      </div>
+      <div id="todayList" class="today-list"></div>
+    </section>
+
+    <section class="card stats-card">
+      <h3>難易度別進捗</h3>
+      <div id="diffStats" class="diff-stats"></div>
+    </section>
+
+    <section id="trackList" class="track-list"></section>
+  </main>
+
+  <dialog id="editDialog">
+    <form method="dialog" id="editForm">
+      <div class="dialog-head">
+        <div>
+          <p id="editMeta" class="eyebrow"></p>
+          <h3 id="editTitle"></h3>
+        </div>
+        <button value="cancel" class="icon-btn">×</button>
+      </div>
+      <label>ランプ
+        <select id="editLamp">
+          <option>未プレイ</option><option>EASY</option><option>CLEAR</option><option>HARD</option><option>EXHARD</option><option>FULL COMBO</option>
+        </select>
+      </label>
+      <label>優先度
+        <select id="editPriority"><option value="">なし</option><option>★★★</option><option>★★</option><option>★</option></select>
+      </label>
+      <label class="check"><input id="editFav" type="checkbox" /> お気に入り</label>
+      <label>メモ<textarea id="editMemo" placeholder="例：右鏡、FLIP、終盤注意"></textarea></label>
+      <button id="saveEdit" value="default" class="primary">保存</button>
+    </form>
+  </dialog>
+
+  <footer>
+    <button id="exportBtn">バックアップ</button>
+    <label class="importBtn">復元<input id="importInput" type="file" accept="application/json" hidden /></label>
+  </footer>
+
+  <script src="app.js?v=1.0.0"></script>
+</body>
+</html>
