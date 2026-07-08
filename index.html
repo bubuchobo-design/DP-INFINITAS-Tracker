@@ -7,7 +7,7 @@
   <title>DP INFINITAS Tracker</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon.svg" />
-  <link rel="stylesheet" href="style.css?v=1.0.0" />
+  <link rel="stylesheet" href="style.css?v=1.1.0" />
 </head>
 <body>
   <header class="hero">
@@ -16,7 +16,7 @@
       <h1>DP INFINITAS Tracker</h1>
       <p class="sub">☆10 / ☆11 / ☆12 · INFINITAS DP</p>
     </div>
-    <div class="version">v1.0</div>
+    <div class="version">v1.1</div>
   </header>
 
   <main>
@@ -50,7 +50,7 @@
       <div class="grid2">
         <select id="lampFilter">
           <option value="">ランプ 全て</option>
-          <option>未プレイ</option><option>EASY</option><option>CLEAR</option><option>HARD</option><option>EXHARD</option><option>FULL COMBO</option>
+          <option value="未プレイ">未プレイ</option><option value="EASY">EASY</option><option value="CLEAR">NORMAL</option><option value="HARD">HARD</option><option value="EXHARD">EXHARD</option><option value="FULL COMBO">FC</option>
         </select>
         <select id="sortSelect">
           <option value="difficulty">難易度順</option>
@@ -68,6 +68,13 @@
       <div class="countline"><span id="resultCount">0</span> 譜面表示中</div>
     </section>
 
+    <section class="card list-card">
+      <div class="section-title">
+        <h3>曲一覧</h3>
+      </div>
+      <section id="trackList" class="track-list"></section>
+    </section>
+
     <section class="card today-card">
       <div class="section-title">
         <h3>今日の候補</h3><button id="rerollBtn">再抽選</button>
@@ -79,8 +86,6 @@
       <h3>難易度別進捗</h3>
       <div id="diffStats" class="diff-stats"></div>
     </section>
-
-    <section id="trackList" class="track-list"></section>
   </main>
 
   <dialog id="editDialog">
@@ -94,7 +99,7 @@
       </div>
       <label>ランプ
         <select id="editLamp">
-          <option>未プレイ</option><option>EASY</option><option>CLEAR</option><option>HARD</option><option>EXHARD</option><option>FULL COMBO</option>
+          <option value="未プレイ">未プレイ</option><option value="EASY">EASY</option><option value="CLEAR">NORMAL</option><option value="HARD">HARD</option><option value="EXHARD">EXHARD</option><option value="FULL COMBO">FC</option>
         </select>
       </label>
       <label>優先度
@@ -111,6 +116,6 @@
     <label class="importBtn">復元<input id="importInput" type="file" accept="application/json" hidden /></label>
   </footer>
 
-  <script src="app.js?v=1.0.0"></script>
+  <script src="app.js?v=1.1.0"></script>
 </body>
 </html>

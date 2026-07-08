@@ -1,4 +1,4 @@
-# DP INFINITAS Tracker v1.0 Complete
+# DP INFINITAS Tracker v1.1 Complete
 
 iPhone / GitHub Pages 用の DP INFINITAS 管理アプリです。
 
@@ -44,3 +44,9 @@ iPhone / GitHub Pages 用の DP INFINITAS 管理アプリです。
 
 ランプ・お気に入り・メモは端末のブラウザ内に保存されます。
 機種変更やブラウザ削除の前に「バックアップ」を使ってください。
+
+
+## v1.1 更新内容
+- 曲一覧を「今日の候補」より上に移動
+- ランプ表示を指定カラーに変更：EASY=緑 / NORMAL=青 / HARD=赤 / EXHARD=黄 / FC=白
+- 曲カードにもランプ色の薄いアクセントを追加
