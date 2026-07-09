@@ -1,8 +1,8 @@
-# DP INFINITAS Tracker v2.0
+# DP INFINITAS Tracker v2.2
 
 iPhone / GitHub Pages用のDP INFINITAS管理アプリです。
 
-## v2.0 更新内容
+## v2.2 更新内容
 
 - 曲一覧の上部を「非公式順 / A-Z / シリーズ」タブに変更
 - 曲名検索・ランプ検索は非表示のシンプルUI
@@ -14,3 +14,14 @@ iPhone / GitHub Pages用のDP INFINITAS管理アプリです。
 ## 更新方法
 
 ZIPを解凍して、中のファイルをGitHubリポジトリへ上書きアップロードしてください。
+
+
+## v2.2
+- 曲カードの作品名の隣に実レベル表示を追加
+- A-Zタブを未HARDタブに変更
+
+
+## v2.2
+- 未HARDタブを検索タブに変更
+- 検索タブ選択時だけ曲名検索欄を表示
+- 曲カードに公式☆難易度を表示

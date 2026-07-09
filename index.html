@@ -6,7 +6,7 @@
   <title>DP INFINITAS Tracker</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" />
-  <link rel="stylesheet" href="style.css?v=2.0.0" />
+  <link rel="stylesheet" href="style.css?v=2.2.0" />
 </head>
 <body>
   <header class="hero">
@@ -14,7 +14,7 @@
       <h1>DP INFINITAS</h1>
       <p class="sub">Tracker / Road to DP Kaiden</p>
     </div>
-    <div class="version">v2.0</div>
+    <div class="version">v2.2</div>
   </header>
 
   <main>
@@ -52,9 +52,10 @@
         </div>
         <div class="seg sort-tabs" id="sortTabs">
           <button data-sort="difficulty" class="active">非公式順</button>
-          <button data-sort="title">A-Z</button>
           <button data-sort="version">シリーズ</button>
+          <button data-sort="search">検索</button>
         </div>
+        <div class="search-panel" id="searchPanel" hidden><input id="trackSearch" type="search" placeholder="曲名で絞り込み" autocomplete="off" /></div>
         <select id="diffFilter"><option value="">難易度 全て</option></select>
         <div class="countline"><span id="resultCount">0</span> 譜面</div>
       </section>
@@ -113,6 +114,6 @@
     </form>
   </dialog>
 
-  <script src="app.js?v=2.0.0"></script>
+  <script src="app.js?v=2.2.0"></script>
 </body>
 </html>
